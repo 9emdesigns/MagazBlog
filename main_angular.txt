@@ -1,0 +1,68 @@
+<app-header></app-header>
+<main class="grid-container full">
+
+    <section class="gridHierarchy">
+      <div class="col1" style="background-color: rgb(198, 202, 106)">
+        1 col
+      </div>
+      <div class="col2 SubGrid">
+        <div class="head"><h1>my awsome (e)Magazine</h1></div>
+        <div class="column dottedvert imgCard aqua">
+        <img src="assets/images/mother_wife_Lucero.jpg" alt="" class="coverImage duotone">
+        </div>
+        <div class="column dottedvert coverImage fuchsia">
+          <img src="assets/images/mother_wife_Lucero.jpg" alt="" class="coverImage duotone">
+        </div>
+        <div class="column dottedvert subsub span2">
+          <img src="assets/images/Lucero-new.jpg" alt="" class="coverImageMain Mainduo">
+          <div class="">&nbsp;</div>
+          <div class="">&nbsp;2</div>
+          <div class="">&nbsp;3</div>
+          <div class="duotone" style="background-color: aquamarine;width:250px;height: 250px;z-index: 1;position:relative;bottom:270px">&nbsp;</div>
+        </div>
+
+        <div class="column dottedvert coverImage">
+         <p>hideme!</p>
+        </div>
+        <div class="column dottedvert  coverImage">
+         4
+        </div>
+        <div class="column dottedvert coverImage">
+         5
+        </div>
+        <div class="column dottedvert coverImage">
+         6
+
+        </div>
+
+        <div class="column dottedvert coverImage">
+          7
+        </div>
+        <div class="column dottedvert coverImage">
+            8
+          </div>
+        
+        <div class="column spanLine" style="background-color: rgb(0, 0, 0);height:14px;"></div>
+        <div class="column span grid-x align-center align-middle">
+          <div class="cell size"></div>
+          <div class="cell size"></div>
+          <div class="cell size"></div>
+          <div class="cell size"></div>
+          <div class="cell size"></div>
+        </div>
+        <div class="column">9</div>
+        <div class="column">9</div>
+        <div class="column span grid-x align-center align-middle">
+          <div class="cell size1"></div>
+          <div class="cell size1"></div>
+          <div class="cell size1"></div>
+          <div class="cell size1"></div>
+          <div class="cell size1"></div>
+          <div class="cell size1"></div>
+        </div>
+        <div class="column">9</div>
+        <div class="column">9</div>
+      </div>
+    </section>
+  </main>
+

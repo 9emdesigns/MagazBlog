@@ -1,0 +1,24 @@
+mat-expansion-panel {
+  margin-top: 20px;
+  background-color: rgb(92, 22, 126);
+  color: snow;
+}
+mat-panel-title {
+  color: snow;
+}
+
+mat-panel-description {
+  color: snow;
+}
+
+.flex-container {
+  display: flex;
+  width: 100%;
+}
+.position-text {
+  flex: 1;
+}
+
+.move {
+  margin-right: 20px;
+}
