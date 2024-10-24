@@ -8,19 +8,25 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="flex-container">
-        <div class="position-text">
-          <p *ngFor="let post of posts">
-            {{ post.title }}&nbsp;<strong>|</strong>&nbsp;{{ post.content }}
-          </p>
-        </div>
-        <div class="position-button">
-          <button type="button" mat-flat-button color="accent" class="move">
-            Edit
-          </button>
-          <button type="button" mat-flat-button color="warn">Delete</button>
+        <div class="position-text" *ngFor="let post of posts">
+          <div class="unify">
+            <div class="expand-text">
+              {{ post.title }}&nbsp;<strong>|</strong>&nbsp;{{ post.content }}
+            </div>
+            <div class="position-button">
+              <button
+                type="button"
+                mat-flat-button
+                class="move"
+                style="background-color: beige"
+              >
+                Edit
+              </button>
+              <button type="button" mat-flat-button color="warn">Delete</button>
+            </div>
+          </div>
         </div>
       </div>
-      <mat-action-row> </mat-action-row>
     </mat-expansion-panel>
   </mat-accordion>
   <H2 *ngIf="posts.length <= 0" style="text-align: center"
