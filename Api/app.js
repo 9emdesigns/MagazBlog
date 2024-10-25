@@ -1,5 +1,20 @@
 const express = require("express");
+const bodyparser = require("body-parser");
+const mongoose = require("mongoose");
+const Post = require("./models/post");
 const app = express();
+app.use(bodyparser.json());
+
+mongoose
+  .connect(
+    "mongodb+srv://9emdesign:BMnsK6VkRhoKuea6@magblog.bq8v8.mongodb.net/Blog?retryWrites=true&w=majority&appName=MagBlog"
+  )
+  .then(() => {
+    console.log("Connected to MongoDB!!");
+  })
+  .catch(() => {
+    this.console.log("Connection Failed: Could not Connect to MongoDB!");
+  });
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -19,7 +34,26 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/posts", (req, res, next) => {
+/* app.post("/api/posts", (req, res, next) => {
+  const post = req.body;
+  console.log(post);
+  res.status(201).json({
+    message: "Post added succesfully to MongoDB!",
+  });
+}); */
+app.post("/api/posts", (req, res, next) => {
+  const post = new Post({
+    title: req.body.title,
+    content: req.body.content,
+  });
+  post.save();
+  console.log(post);
+  res.status(201).json({
+    message: "Post added succesfully to MongoDB!",
+  });
+});
+
+app.get("/api/posts", (req, res, next) => {
   const posts = [
     {
       id: "1234509876",
@@ -37,6 +71,6 @@ app.use("/api/posts", (req, res, next) => {
       content: "The path from the NodeJS Server!!",
     },
   ];
-  res.status(200).json({ message: "Post fteched Successfully!", posts: posts });
+  res.status(200).json({ message: "Post fetched Successfully!", posts: posts });
 });
 module.exports = app;

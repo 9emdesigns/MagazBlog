@@ -13,7 +13,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import { PostServiceService } from './Post/post-service.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -34,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     HttpClientModule,
   ],
-  providers: [provideAnimationsAsync(), PostServiceService],
+  providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

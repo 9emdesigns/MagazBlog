@@ -1,2 +1,4 @@
 BMnsK6VkRhoKuea6
 
+connection string:
+mongodb+srv://9emdesign:<db_password>@magblog.bq8v8.mongodb.net/?retryWrites=true&w=majority&appName=MagBlog
