@@ -2,8 +2,17 @@
   <form (submit)="onAddPost(postForm)" #postForm="ngForm">
     <mat-form-field style="margin-top: 20px">
       <mat-label>Titulo</mat-label>
-      <input matInput ngModel name="title" required #title="ngModel" />
-      <mat-error *ngIf="title.invalid">Porfabor yena un titulo</mat-error>
+      <input
+        matInput
+        ngModel
+        name="title"
+        required
+        minlength="20"
+        #title="ngModel"
+      />
+      <mat-error *ngIf="title.invalid"
+        >Porfabor yena un titulo di minimo 20 karakter</mat-error
+      >
     </mat-form-field>
     <mat-form-field style="background-color: rgb(230, 227, 227)">
       <mat-label>Contenido</mat-label>

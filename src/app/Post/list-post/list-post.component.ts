@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Post } from '../postModel';
 import { PostServiceService } from '../post-service.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list-post',
   templateUrl: './list-post.component.html',
   styleUrl: './list-post.component.css',
 })
-export class ListPostComponent implements OnInit {
+export class ListPostComponent implements OnInit, OnDestroy {
   /* posts = [
     {
       title: 'A journey into coding Angular Apps',
@@ -24,7 +25,7 @@ export class ListPostComponent implements OnInit {
   ]; */
 
   posts: Post[] = [];
-
+  private postsSub!: Subscription;
   constructor(public postService: PostServiceService) {}
 
   /* getPost(): void {
@@ -33,10 +34,20 @@ export class ListPostComponent implements OnInit {
     });
   } */
 
+  onDelete(postId: string) {
+    this.postService.deletePost(postId);
+  }
+
   ngOnInit() {
     this.postService.getPost();
-    this.postService.getPostUpdatedListener().subscribe((posts: Post[]) => {
-      this.posts = posts;
-    });
+    this.postsSub = this.postService
+      .getPostUpdatedListener()
+      .subscribe((posts: Post[]) => {
+        this.posts = posts;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.postsSub.unsubscribe();
   }
 }
