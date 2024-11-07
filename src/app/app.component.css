@@ -1,4 +1,18 @@
 main {
   margin: auto;
-  width: 60%;
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+.content {
+  z-index: 10;
+}
+
+.duotone {
+  mix-blend-mode: luminosity;
+  opacity: 0.08;
+  position: fixed;
+  top: 120px;
+  z-index: -2;
 }

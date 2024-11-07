@@ -1,7 +1,8 @@
 mat-expansion-panel {
-  margin-top: 20px;
   background-color: rgb(92, 22, 126);
   color: snow;
+  position: relative;
+  top: 20px;
 }
 mat-panel-title {
   color: snow;
@@ -33,4 +34,9 @@ mat-panel-description {
 }
 .expand-text {
   width: 83%;
+}
+
+.color {
+  width: 60%;
+  margin: auto;
 }

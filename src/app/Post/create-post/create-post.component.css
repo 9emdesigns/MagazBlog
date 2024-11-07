@@ -12,10 +12,8 @@ form {
   background-color: rgb(255, 241, 223);
   padding: 20px;
 }
-input {
-  /*background-color: rgb(254, 245, 233);*/
-}
 
 mat-card {
-  margin-top: 20px;
+  margin: 20px auto 0 auto;
+  width: 60%;
 }
