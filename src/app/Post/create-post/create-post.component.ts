@@ -13,7 +13,7 @@ export class CreatePostComponent implements OnInit {
   enteredTitle = '';
   enteredContent = '';
   private mode = 'create';
-  private postId: string | undefined | null;
+  private postId: any;
   public post: Post | any;
 
   constructor(
@@ -38,12 +38,19 @@ export class CreatePostComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-
-    this.postService.addPost(
-      form.value.id,
-      form.value.title,
-      form.value.content
-    );
+    if (this.mode === 'create') {
+      this.postService.addPost(
+        form.value.id,
+        form.value.title,
+        form.value.content
+      );
+    } else {
+      this.postService.updatePost(
+        this.postId,
+        form.value.title,
+        form.value.content
+      );
+    }
     form.resetForm();
   }
 }
