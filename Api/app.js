@@ -65,5 +65,5 @@ app.use((req, res, next) => {
   ];
   res.status(200).json({ message: "Post fetched Successfully!", posts: posts });
 }); */
-app.use(postRoutes);
+app.use("/api/posts", postRoutes);
 module.exports = app;

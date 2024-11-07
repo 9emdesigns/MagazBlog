@@ -3,7 +3,7 @@ const router = express.Router();
 const Post = require("../models/post");
 
 /* Here i post to the Mongo database  */
-router.post("/api/posts", (req, res, next) => {
+router.post("", (req, res, next) => {
   const post = new Post({
     title: req.body.title,
     content: req.body.content,
@@ -18,7 +18,7 @@ router.post("/api/posts", (req, res, next) => {
   //console.log(post);
 });
 /* Here i fetch frrom the Mongo database  */
-router.get("/api/posts", (req, res, next) => {
+router.get("", (req, res, next) => {
   Post.find().then((documents) => {
     res
       .status(200)
@@ -27,7 +27,7 @@ router.get("/api/posts", (req, res, next) => {
 });
 
 /* Here i delete from the Mongo database */
-router.delete("/api/posts/:id", (req, res, next) => {
+router.delete("/:id", (req, res, next) => {
   /* console.log(req.params.id);
   res.status(200).json({ message: "Post has een deleted!" }); */
   Post.deleteOne({ _id: req.params.id }).then((result) => {
@@ -36,7 +36,7 @@ router.delete("/api/posts/:id", (req, res, next) => {
   });
 });
 
-router.put("/api/posts/:id", (req, res, next) => {
+router.put("/:id", (req, res, next) => {
   const post = new Post({
     _id: req.body.id,
     title: req.body.title,
@@ -48,7 +48,7 @@ router.put("/api/posts/:id", (req, res, next) => {
   });
 });
 
-router.get("/api/posts/:id", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
   Post.findById(req.params.id).then((post) => {
     if (post) {
       res.status(200).json(post);
