@@ -1,0 +1,42 @@
+<section class="color">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle *ngIf="posts.length > 0">
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{ posts[posts.length - 1].title }}</mat-panel-title>
+        <mat-panel-description>
+          This is a lifetime journey
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="flex-container">
+        <div class="position-text" *ngFor="let post of posts">
+          <div class="unify">
+            <div class="expand-text">
+              {{ post.title }}&nbsp;<strong>|</strong>&nbsp;{{ post.content }}
+            </div>
+            <div class="position-button">
+              <button
+                type="button"
+                mat-flat-button
+                class="move"
+                style="background-color: beige"
+              >
+                Edit
+              </button>
+              <button
+                type="button"
+                mat-flat-button
+                color="warn"
+                (click)="onDelete(post.id)"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <H2 *ngIf="posts.length <= 0" style="text-align: center"
+    >No tin Kontenido disponibel!!</H2
+  >
+</section>
