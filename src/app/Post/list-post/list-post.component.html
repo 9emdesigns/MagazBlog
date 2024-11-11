@@ -1,17 +1,27 @@
 <section class="color">
-  <mat-accordion>
-    <mat-expansion-panel hideToggle *ngIf="posts.length > 0">
+  <mat-accordion *ngIf="posts.length > 0">
+    <mat-expansion-panel hideToggle *ngFor="let post of posts">
       <mat-expansion-panel-header>
-        <mat-panel-title>{{ posts[posts.length - 1].title }}</mat-panel-title>
+        <mat-panel-title>{{ post.title }}</mat-panel-title>
         <mat-panel-description>
           This is a lifetime journey
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="flex-container">
-        <div class="position-text" *ngFor="let post of posts">
+        <div class="position-text">
           <div class="unify">
             <div class="expand-text">
-              {{ post.title }}&nbsp;<strong>|</strong>&nbsp;{{ post.content }}
+              <br /><img
+                src="../../../assets/images/Amiga_BW_cover.jpg"
+                alt=""
+                style="
+                  box-shadow: rgba(178, 67, 178, 0.671) 0px 13px 27px -5px,
+                    rgba(226, 123, 238, 0.3) 0px 8px 16px -8px;
+                  margin: -20px 0 20px 0;
+                "
+              />
+              <h2 style="line-height: 10pt; padding: 0">{{ post.title }}</h2>
+              <p style="line-height: 2pt; padding: 0¸">{{ post.content }}</p>
             </div>
             <div class="position-button">
               <button
