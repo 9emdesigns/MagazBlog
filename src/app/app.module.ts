@@ -11,9 +11,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,13 +26,15 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
     MatExpansionModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    ReactiveFormsModule,
     MatCardModule,
     HttpClientModule,
+    CommonModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

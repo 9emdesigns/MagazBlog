@@ -1,32 +1,19 @@
 <mat-card>
-  <form [formGroup]="form" (submit)="onAddPost()">
+  <form [formGroup]="forms" (submit)="onAddPost()">
     <mat-form-field style="margin-top: 20px">
       <mat-label>Titulo</mat-label>
-      <input matInput formControlName="title" />
-      <mat-error *ngIf="form.get('title')"
+      <input matInput type="text" formControlName="title" />
+      <mat-error *ngIf="forms.get('title').invalid"
         >Porfabor yena un titulo di minimo 20 karakter</mat-error
       >
     </mat-form-field>
     <mat-form-field style="background-color: rgb(230, 227, 227)">
       <mat-label>Contenido</mat-label>
       <textarea matInput rows="10" formControlName="content"></textarea><br />
-      <mat-error *ngIf="form.get('content')"
+      <mat-error *ngIf="forms.get('content').invalid"
         >Porfabor yena bo contenido</mat-error
       >
     </mat-form-field>
-    <div class="styleCont">
-      <button
-        type="button"
-        mat-flat-button
-        (click)="pickFile.click()"
-        color="primary"
-        style="background-color: rgb(170, 133, 204)"
-        class="stylebtn"
-      >
-        Pick File
-      </button>
-      <input type="file" #pickFile class="hide" />
-    </div>
     <button
       mat-flat-button
       color="primary"
