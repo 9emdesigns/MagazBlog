@@ -16,6 +16,7 @@ export class CreatePostComponent implements OnInit {
   private mode = 'create';
   private postId: any;
   public post: Post | any;
+  imagePreview: any;
 
   constructor(
     public postService: PostServiceService,
@@ -30,6 +31,9 @@ export class CreatePostComponent implements OnInit {
       content: new FormControl(null, {
         validators: [Validators.required],
       }),
+      /*    image: new FormControl(null, {
+        validators: [Validators.required],
+      }), */
     });
 
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -52,6 +56,20 @@ export class CreatePostComponent implements OnInit {
         this.postId = null;
       }
     });
+  }
+
+  onfilePick(event: Event) {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (!(file instanceof Blob)) {
+      throw new Error('File is not a blob');
+    }
+    this.forms.patchValue({ image: file });
+    this.forms.get('image')?.updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result;
+    };
+    return reader.readAsDataURL(file);
   }
 
   onAddPost() {

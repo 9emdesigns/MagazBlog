@@ -17,3 +17,25 @@ mat-card {
   margin: 20px auto 0 auto;
   width: 60%;
 }
+.imagePreview {
+  margin: 20px 20px 20px 0px;
+}
+
+input[type="file"] {
+  visibility: hidden;
+  float: left;
+}
+.imgPreview {
+  display: inline-block;
+  width: 250px;
+  height: 90px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  margin-left: 20px;
+}
+
+.imagePreview img {
+  width: 250px;
+  height: 90px;
+  object-fit: cover;
+}
